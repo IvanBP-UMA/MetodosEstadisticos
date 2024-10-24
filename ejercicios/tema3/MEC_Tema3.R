@@ -11,7 +11,7 @@ localFolder='c:/data/'
 
 # leemos los datos
 # Le indicamos la frecuencia de la componente estacional
-xx <- scan(str_c(localFolder, 'ts01.dat'))
+xx <- scan('ts01.dat')
 uk <- ts(xx, start=c(1969, 1), frequency=4)
 
 # Ejemplo del primer valor de la media movil de orden 3.
@@ -101,6 +101,7 @@ autoCorrel <- function(data, n) {
 
 # Calculamos la autocorrelaci�n para frecuencia 4
 autoCorrel(uk, 4)
+
 
 # Calculamos las autocorrelaciones para frecuencias 1 a 12
 acValues <- map_dbl(1:12, autoCorrel, data=uk)
