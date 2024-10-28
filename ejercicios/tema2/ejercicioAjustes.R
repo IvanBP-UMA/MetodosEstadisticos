@@ -1,4 +1,7 @@
-#Ejercicio 8
+#################
+# Ejercicio 8   #
+#################
+
 x <- c(1, 2, 3, 4, 5)
 y <- c(3, 4.5, 7, 10, 15)
 
@@ -11,9 +14,41 @@ varY <- mean(y^2) - mean(y)^2
 rSQRD <- 1 - MSE/varY
 summary(mod1)$r.squared
 
-################
-#Ejercicio 11
-################
+
+#################
+# Ejercicio 9   #
+#################
+
+x <- c(1, 2, 3, 4, 5)
+y <- c(0.5, 2, 4.5, 8, 12.5)
+
+xp <- log(x)
+yp <- log(y)
+mod <- lm(yp~xp)
+
+yest <- exp(mod$coefficients[1])*x^(mod$coefficients[2])
+
+
+#################
+# Ejercicio 10  #
+#################
+
+x <- c(1, 2, 3, 4, 5)
+y <- c(1, 0.5, 0.33, 0.25, 0.2)
+
+yp <- 1/y
+mod <- lm(yp~x)
+
+yest <- 1/(mod$coefficients[1]+mod$coefficients[2]*x)
+MSE <- mean((y-yest)^2)
+varY <- mean(y^2) - mean(y)^2
+R2 <- 1 - MSE/varY
+
+
+#################
+# Ejercicio 11  #
+#################
+
 x <- c(1, 2, 3, 4, 5)
 y <- c(1, 1, 2, 4, 8)
 
